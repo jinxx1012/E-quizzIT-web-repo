@@ -1,0 +1,87 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: #222222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.forgot-container {
+  background: #741e09;
+  padding: 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  width: 360px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 10px;
+  color: #F8FAFC;
+}
+
+p {
+  color: #F8FAFC;
+  font-size: 0.95rem;
+}
+
+.input-group {
+  margin: 20px 0;
+  text-align: left;
+}
+
+label {
+  font-weight: 600;
+  color: #F8FAFC;
+  display: block;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: 0.2s;
+}
+
+input:focus {
+  border-color: #667eea;
+}
+
+.btn {
+    text-decoration: none;
+  width: 100%;
+  background: #F43F5E;
+  color: #F8FAFC;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #F40076;
+}
+
+.back-login {
+  margin-top: 20px;
+}
+
+.back-login a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#message {
+  margin-top: 15px;
+  color: green;
+  font-weight: 600;
+}

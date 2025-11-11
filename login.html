@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-quizzIT/ph.com | Login</title>
+
+    <link rel="stylesheet" href="login.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="login-container">
+      <div class="login-card">
+        <h2>Welcome Back!</h2>
+        <p class="subtitle">Log in to continue your quiz journey</p>
+
+        <form class="loginform" id="login-form">
+          <div class="input-box">
+            <ion-icon name="mail-outline" class="icon"></ion-icon>
+            <input
+              id="loginemail"
+              type="email"
+              placeholder="Email"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div class="input-box">
+            <ion-icon name="lock-closed-outline" class="icon"></ion-icon>
+            <input
+              id="logPassword"
+              type="password"
+              placeholder="Password"
+              autocomplete="current-password"
+              required
+            />
+            <ion-icon
+              name="eye-outline"
+              id="log-pass-icon"
+              class="toggle-pass"
+            ></ion-icon>
+          </div>
+
+          <div class="forgot">
+            <a href="forgot.html" id="forgotLink">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="btn">Login</button>
+
+          <p class="form-message" id="login-message"></p>
+          <p class="register-text">
+            Don't have an account?
+            <a href="reg.html">Register</a>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Script -->
+    <script type="module" src="landingpage.js"></script>
+    <script type="module" src="firebase.js"></script>
+
+    <!-- Ionicons -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #2a2a2a, #181818);
+}
+
+/* Container */
+.reg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Register Box */
+.reg-box {
+  width: 400px;
+  background: #741e09;
+  border-radius: 20px;
+  padding: 40px 35px;
+  box-shadow: 0 0 25px rgba(244, 63, 94, 0.4);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.reg-box:hover {
+  box-shadow: 0 0 35px rgba(244, 63, 94, 0.6);
+}
+
+h2 {
+  font-size: 2em;
+  color: #F8FAFC;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Input Fields */
+.input-box {
+  position: relative;
+  width: 100%;
+  margin: 25px 0;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px 45px 12px 40px; /* enough space for both icons */
+  border: 2px solid rgba(248, 250, 252, 0.3);
+  border-radius: 10px;
+  background: transparent;
+  color: #F8FAFC;
+  font-size: 1em;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-box input:focus {
+  border-color: #F43F5E;
+  box-shadow: 0 0 8px rgba(244, 63, 94, 0.5);
+  outline: none;
+}
+
+.input-box .icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #F8FAFC;
+  font-size: 1.2em;
+}
+
+.input-box .icon:first-child {
+  left: 12px; /* input field icon (mail, person, lock) */
+  pointer-events: none;
+}
+
+.input-box .toggle {
+  right: 12px; /* password visibility icon */
+  cursor: pointer;
+  pointer-events: all;
+}
+
+
+/* Icons */
+.input-box .icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #F8FAFC;
+  font-size: 1.2em;
+  pointer-events: none;
+}
+
+/* Button */
+.btn-register {
+  width: 100%;
+  height: 45px;
+  background: #F43F5E;
+  color: #F8FAFC;
+  font-size: 1em;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-register:hover {
+  background: #F40076;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(244, 63, 94, 0.5);
+}
+
+/* Login link */
+.login-link {
+  color: #F8FAFC;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9em;
+}
+
+.login-link a {
+  color: #F43F5E;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .reg-box {
+    width: 90%;
+    padding: 30px 25px;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+}

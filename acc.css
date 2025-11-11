@@ -1,0 +1,220 @@
+/* ---------- Reset & Base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+}
+
+body {
+  background: #222222;
+  color: #fff;
+  padding-top: 80px; /* offset for fixed navbar */
+}
+
+/* ---------- Navbar ---------- */
+nav {
+  background-color: #F43F5E;
+  color: #fff;
+  padding: 18px 40px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+nav .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+nav .logo a {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease;
+}
+
+nav .logo a:hover {
+  transform: scale(1.05);
+}
+
+nav .menu {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+nav .menu li a {
+  padding: 10px 20px;
+  border: 2px solid #F8FAFC;
+  border-radius: 25px;
+  background: transparent;
+  color: #F8FAFC;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+nav .menu li a:hover {
+  background: #F8FAFC;
+  color: #F43F5E;
+  transform: translateY(-2px);
+}
+
+/* ---------- Profile Section ---------- */
+.profile-section {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #222222;
+  padding: 40px 20px;
+}
+
+.profile-card {
+  background: #2c2c2c;
+  padding: 50px 40px;
+  border-radius: 20px;
+  text-align: center;
+  width: 360px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(244, 63, 94, 0.3);
+}
+
+/* Avatar */
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  background: #3b3b3b;
+  color: #fff;
+  user-select: none;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.profile-avatar.has-photo {
+  background-color: transparent;
+  color: transparent;
+}
+
+/* Text */
+.profile-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.profile-card p {
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+/* Logout Button */
+.profile-card button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background: #F43F5E;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.profile-card button:hover {
+  background: #F8FAFC;
+  color: #F43F5E;
+  transform: translateY(-2px);
+}
+
+/* ---------- Achievements ---------- */
+/* Achievements Container */
+.achievements-container {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* one column */
+  gap: 15px;
+  margin-top: 15px;
+  justify-items: center;
+}
+
+/* Each achievement card */
+.achievement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #1c1c1c;
+  border-radius: 12px;
+  padding: 15px;
+  width: 100%;
+  max-width: 250px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+.achievement:hover {
+  transform: scale(1.03);
+}
+
+/* Achievement image (badge) */
+.achievement img {
+  width: 100%;
+  max-width: 150px; /* limit max size */
+  height: auto;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+/* Text inside the achievement */
+.achievement-info {
+  margin-top: 10px;
+  color: #fff;
+  text-align: center;
+}
+.achievement-info p {
+  margin: 4px 0;
+}
+.achievement-info small {
+  color: #ccc;
+  font-size: 0.8rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .profile-card {
+    width: 90%;
+    padding: 35px 25px;
+  }
+  nav .logo a {
+    font-size: 24px;
+  }
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

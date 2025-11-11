@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-quizzIT/ph.com | Profile</title>
+  <link rel="stylesheet" href="acc.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="acc.js" defer></script>
+  <script type="module" src="navbar.js" defer></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="navbar">
+      <div class="logo"><a href="index.html">E-quizzIT</a></div>
+      <ul class="menu" id="navbarMenu"></ul>
+    </div>
+  </nav>
+
+  <!-- Profile Section -->
+  <section class="profile-section">
+    <div class="profile-card">
+      <div id="profileAvatar" class="profile-avatar">👤</div>
+
+      <h2 id="userName">User Name</h2>
+      <p id="userEmail">user@example.com</p>
+
+      <button id="logoutBtn">Logout</button>
+
+      <!-- Dynamic Achievements Container -->
+      <div class="achievements-container">
+        <h3>Achievements</h3>
+        <div id="achievementsGrid" class="achievements-grid"></div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
