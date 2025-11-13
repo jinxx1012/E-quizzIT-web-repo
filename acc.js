@@ -1,5 +1,5 @@
 // ===========================
-// acc.js – Account Dashboard Script
+// acc.js – Account Dashboard Script (Fixed)
 // ===========================
 
 import {
@@ -41,11 +41,16 @@ const logoutBtn = document.getElementById("logoutBtn");
 const avatarEl = document.getElementById("profileAvatar");
 const achievementsGrid = document.getElementById("achievementsGrid");
 
-// ===========================
 // Helper: Avatar Display
-// ===========================
+
 function setAvatar(nameOrEmail, photoURL) {
   if (!avatarEl) return;
+
+  
+  if (photoURL) {
+    photoURL = photoURL.replace(/^@\//, "./").replace(/^\/@\/?/, "./");
+  }
+
   if (photoURL) {
     avatarEl.style.backgroundImage = `url(${photoURL})`;
     avatarEl.textContent = "";
@@ -61,9 +66,8 @@ function setAvatar(nameOrEmail, photoURL) {
   }
 }
 
-// ===========================
 // Auth State Change
-// ===========================
+
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     // Show profile data
@@ -78,16 +82,15 @@ onAuthStateChanged(auth, async (user) => {
       setAvatar(name || email, photo);
     });
 
-    // 🏆 Load achievements
+    //  Load achievements
     await loadAchievements(user.uid);
   } else {
     window.location.href = "login.html";
   }
 });
 
-// ===========================
-// Load Achievements
-// ===========================
+// Load Achievements (Fixed)
+
 async function loadAchievements(uid) {
   achievementsGrid.innerHTML = "<p>Loading achievements...</p>";
 
@@ -100,24 +103,37 @@ async function loadAchievements(uid) {
       return;
     }
 
-    achievementsGrid.innerHTML = ""; // Clear loading
+    achievementsGrid.innerHTML = ""; // Clear loading message
 
     querySnapshot.forEach((docSnap) => {
       const data = docSnap.data();
       const { name, description, photoURL, dateUnlocked } = data;
 
+      //  Sanitize the image path
+      let sanitizedURL = photoURL || "./assets/medals/default.png";
+      sanitizedURL = sanitizedURL.replace(/^@\//, "./").replace(/^\/@\/?/, "./");
+
+      // Create achievement element
       const achievementEl = document.createElement("div");
       achievementEl.classList.add("achievement");
+
       achievementEl.innerHTML = `
         <div class="medal">
-          <img src="${photoURL || '../assets/medals/default.png'}" alt="${name}" />
+          <img 
+            src="${sanitizedURL}" 
+            alt="${name}" 
+            onerror="this.onerror=null; this.src='./assets/medals/default.png';" 
+          />
         </div>
         <div class="achievement-info">
           <p><strong>${name}</strong></p>
           <p>${description}</p>
-          <small>${new Date(dateUnlocked?.seconds * 1000 || Date.now()).toLocaleDateString()}</small>
+          <small>${new Date(
+            dateUnlocked?.seconds * 1000 || Date.now()
+          ).toLocaleDateString()}</small>
         </div>
       `;
+
       achievementsGrid.appendChild(achievementEl);
     });
   } catch (error) {
@@ -126,17 +142,16 @@ async function loadAchievements(uid) {
   }
 }
 
-// ===========================
+
 // Logout Button
-// ===========================
+
 logoutBtn?.addEventListener("click", async () => {
   await signOut(auth);
   window.location.href = "index.html";
 });
 
-// ===========================
 // Toast Notification Helper
-// ===========================
+
 function showToast(message) {
   const toast = document.createElement("div");
   toast.textContent = message;
@@ -144,8 +159,8 @@ function showToast(message) {
   toast.style.bottom = "20px";
   toast.style.left = "50%";
   toast.style.transform = "translateX(-50%)";
-  toast.style.background = "#333";
-  toast.style.color = "#fff";
+  toast.style.background = "#222222";
+  toast.style.color = "#F8FAFC";
   toast.style.padding = "10px 20px";
   toast.style.borderRadius = "5px";
   toast.style.zIndex = "1000";
@@ -153,9 +168,9 @@ function showToast(message) {
   setTimeout(() => toast.remove(), 3000);
 }
 
-// ===========================
+
 // Local Avatar Selection
-// ===========================
+
 const avatarOptions = document.querySelector(".avatar-options");
 if (avatarOptions) {
   avatarOptions.querySelectorAll(".avatar-option").forEach((img) => {
@@ -169,18 +184,18 @@ if (avatarOptions) {
       }
 
       try {
-        // ✅ Save to Firestore
+        // Save to Firestore
         await setDoc(
           doc(db, "users", user.uid),
           { photoURL: selectedAvatar },
           { merge: true }
         );
 
-        // ✅ Update profile immediately
+        // Update profile immediately
         const profileAvatar = document.getElementById("profileAvatar");
-        if (profileAvatar) profileAvatar.src = selectedAvatar;
+        if (profileAvatar) profileAvatar.style.backgroundImage = `url(${selectedAvatar})`;
 
-        // ✅ Update dropdown avatar (optional)
+        // Update dropdown avatar (optional)
         const dropdownAvatar = document.getElementById("profilePic");
         if (dropdownAvatar) dropdownAvatar.src = selectedAvatar;
 

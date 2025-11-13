@@ -162,7 +162,7 @@ nav .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap:nowrap;
   gap: 50px;
 }
 
@@ -232,6 +232,13 @@ nav .navbar {
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
+  .home-content{
+ >h1{
+   >span{
+display:block}
+}
+}
+
   .about, .abt, .abt-four {
     flex-direction: column;
     text-align: center;
@@ -242,7 +249,7 @@ nav .navbar {
   }
 
   nav .navbar {
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
   }
 

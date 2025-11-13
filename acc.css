@@ -85,8 +85,8 @@ nav .menu li a:hover {
   background: #2c2c2c;
   padding: 50px 40px;
   border-radius: 20px;
+  width: auto;
   text-align: center;
-  width: 360px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -151,18 +151,20 @@ nav .menu li a:hover {
 }
 
 /* ---------- Achievements ---------- */
-/* Achievements Container */
 .achievements-container {
   margin-top: 30px;
+  width: auto;
   text-align: center;
 }
 
 .achievements-grid {
   display: grid;
-  grid-template-columns: 1fr; /* one column */
-  gap: 15px;
+  grid-template-columns: repeat(2, 1fr); /* two equal wide columns */
+  gap: 20px; /* optional: slightly larger spacing */
   margin-top: 15px;
   justify-items: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Each achievement card */
@@ -172,25 +174,24 @@ nav .menu li a:hover {
   align-items: center;
   background: #1c1c1c;
   border-radius: 12px;
-  padding: 15px;
-  width: 100%;
-  max-width: 250px;
+  padding: 20px;
+  width: 100%; /* fills the grid cell */
+  max-width: none; /* remove limit to allow full width */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease;
+  box-sizing: border-box;
 }
+
 .achievement:hover {
   transform: scale(1.03);
 }
 
-/* Achievement image (badge) */
 .achievement img {
-  width: 100%;
-  max-width: 150px; /* limit max size */
+  width: 180px; /* larger image to match bigger cards */
   height: auto;
   border-radius: 50%;
   object-fit: contain;
 }
-
 /* Text inside the achievement */
 .achievement-info {
   margin-top: 10px;
@@ -215,6 +216,6 @@ nav .menu li a:hover {
     font-size: 24px;
   }
   .achievements-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 }

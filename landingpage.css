@@ -29,6 +29,7 @@ nav .navbar {
   width: 90%;
   margin: auto;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -48,16 +49,16 @@ nav .navbar {
   list-style: none;
   display: flex;
   gap: 15px;
-  margin-left: auto; /* ✅ Moves Download button to right side */
+  margin-left: auto; 
 }
 
 .download-btn {
-  text-decoration: none;
-  padding: 12px 30px;
+  padding: 8px 20px;
   border: 2px solid #F8FAFC;
   border-radius: 30px;
+  background: transparent;
   color: #F8FAFC;
-  background: #F43F5E;
+  text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
 }
@@ -65,7 +66,7 @@ nav .navbar {
 .download-btn:hover {
   background: #F8FAFC;
   color: #F43F5E;
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 /* HOME SECTION */
@@ -73,6 +74,7 @@ nav .navbar {
   min-height: 100vh;
   background: linear-gradient(to bottom right, #222222, #1b1b1b);
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -94,7 +96,7 @@ nav .navbar {
   font-weight: 400;
   opacity: 0.9;
   max-width: 600px;
-  margin: 0 auto 25px;
+  margin: 0 auto 25px ;
 }
 
 .logo-wrapper {
@@ -169,7 +171,7 @@ nav .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap:nowrap;
   gap: 50px;
 }
 
@@ -191,10 +193,6 @@ nav .navbar {
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(248, 250, 252, 0.1);
   transition: transform 0.4s ease;
-}
-
-.img3 img:hover, .img4 img:hover, .img5 img:hover {
-  transform: scale(1.05);
 }
 
 /* FOOTER */
@@ -268,7 +266,7 @@ nav .navbar {
   }
 
   nav .navbar {
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
   }
 
