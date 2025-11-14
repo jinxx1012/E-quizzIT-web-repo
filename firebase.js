@@ -1,8 +1,4 @@
-// ===========================
-// firebase.js
-// ===========================
-
-// --- Firebase Configuration ---
+// --- Firebase JS ---
 const firebaseConfig = {
   apiKey: "AIzaSyCSn-dy59BPsAVrZNjuNfLvApHpQ035kr4",
   authDomain: "e-quizzit-capstone.firebaseapp.com",
@@ -40,11 +36,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// ===========================
-// 🔧 Helper Functions
-// ===========================
-
-// Convert Firebase error codes to friendly messages
+// Firebase error 
 function friendlyError(err) {
   const code = err?.code || "";
   switch (code) {
@@ -62,21 +54,21 @@ function friendlyError(err) {
   }
 }
 
-// Display message on element
+// Display message 
 function msg(el, text, ok = false) {
   if (!el) return;
   el.textContent = text;
   el.style.color = ok ? "green" : "crimson";
 }
 
-// Extract email/password from form
+// email/password from form
 function getVals(form) {
   const email = form.querySelector('input[type="email"]')?.value?.trim() || "";
   const password = form.querySelector('input[type="password"]')?.value || "";
   return { email, password };
 }
 
-// Pick first matching element
+// first matching 
 function pick(container, sels) {
   for (const s of sels) {
     const el = container.querySelector(s);
@@ -85,7 +77,7 @@ function pick(container, sels) {
   return null;
 }
 
-/* ===================== PASSWORD TOGGLE ===================== */
+/* ==== PASSWORD TOGGLE ==== */
 (function bindPasswordToggle() {
   const input = document.getElementById("logPassword");
   const icon = document.getElementById("log-pass-icon");
@@ -101,7 +93,7 @@ function pick(container, sels) {
   });
 })();
 
-/* ======================== LOGIN PAGE ======================= */
+/* ==== LOGIN PAGE ==== */
 const loginForm =
   document.getElementById("login-form") ||
   document.querySelector(".loginform");
@@ -138,7 +130,7 @@ if (loginForm) {
   }
 }
 
-/* ================== FORGOT PASSWORD PAGE =================== */
+/* ==== FORGOT PASSWORD PAGE ==== */
 const forgotForm = document.getElementById("forgot-form");
 if (forgotForm) {
   const forgotMsg = document.getElementById("forgot-msg");
@@ -156,9 +148,8 @@ if (forgotForm) {
   });
 }
 
-// ===========================
 // Export Everything
-// ===========================
+
 export {
   app,
   auth,

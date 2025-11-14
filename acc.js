@@ -1,6 +1,4 @@
-// ===========================
-// acc.js – Account Dashboard Script (Fixed)
-// ===========================
+// Account Dashboard Script 
 
 import {
   initializeApp
@@ -19,7 +17,7 @@ import {
   setDoc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-// --- Firebase Config ---
+// --- Firebase Config 
 const firebaseConfig = {
   apiKey: "AIzaSyCSn-dy59BPsAVrZNjuNfLvApHpQ035kr4",
   authDomain: "e-quizzit-capstone.firebaseapp.com",
@@ -29,19 +27,19 @@ const firebaseConfig = {
   appId: "1:200557257873:web:82a0a4f4bbe5927abe0b30"
 };
 
-// --- Initialize Firebase ---
+// --- Initialize Firebase 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// --- Elements ---
+// --- Elements 
 const userNameEl = document.getElementById("userName");
 const userEmailEl = document.getElementById("userEmail");
 const logoutBtn = document.getElementById("logoutBtn");
 const avatarEl = document.getElementById("profileAvatar");
 const achievementsGrid = document.getElementById("achievementsGrid");
 
-// Helper: Avatar Display
+// Avatar Display
 
 function setAvatar(nameOrEmail, photoURL) {
   if (!avatarEl) return;
@@ -70,7 +68,7 @@ function setAvatar(nameOrEmail, photoURL) {
 
 onAuthStateChanged(auth, async (user) => {
   if (user) {
-    // Show profile data
+
     const userRef = doc(db, "users", user.uid);
     onSnapshot(userRef, (snap) => {
       const data = snap.data() || {};
@@ -89,7 +87,6 @@ onAuthStateChanged(auth, async (user) => {
   }
 });
 
-// Load Achievements (Fixed)
 
 async function loadAchievements(uid) {
   achievementsGrid.innerHTML = "<p>Loading achievements...</p>";
@@ -103,7 +100,7 @@ async function loadAchievements(uid) {
       return;
     }
 
-    achievementsGrid.innerHTML = ""; // Clear loading message
+    achievementsGrid.innerHTML = ""; 
 
     querySnapshot.forEach((docSnap) => {
       const data = docSnap.data();
@@ -141,7 +138,6 @@ async function loadAchievements(uid) {
     achievementsGrid.innerHTML = "<p>Failed to load achievements.</p>";
   }
 }
-
 
 // Logout Button
 
@@ -195,7 +191,7 @@ if (avatarOptions) {
         const profileAvatar = document.getElementById("profileAvatar");
         if (profileAvatar) profileAvatar.style.backgroundImage = `url(${selectedAvatar})`;
 
-        // Update dropdown avatar (optional)
+        // Update dropdown avatar
         const dropdownAvatar = document.getElementById("profilePic");
         if (dropdownAvatar) dropdownAvatar.src = selectedAvatar;
 

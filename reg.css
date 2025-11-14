@@ -54,7 +54,7 @@ h2 {
 
 .input-box input {
   width: 100%;
-  padding: 12px 45px 12px 40px; /* enough space for both icons */
+  padding: 12px 45px 12px 40px; 
   border: 2px solid rgba(248, 250, 252, 0.3);
   border-radius: 10px;
   background: transparent;
@@ -78,12 +78,12 @@ h2 {
 }
 
 .input-box .icon:first-child {
-  left: 12px; /* input field icon (mail, person, lock) */
+  left: 12px; 
   pointer-events: none;
 }
 
 .input-box .toggle {
-  right: 12px; /* password visibility icon */
+  right: 12px; 
   cursor: pointer;
   pointer-events: all;
 }

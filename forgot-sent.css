@@ -1,4 +1,4 @@
-/* -------------- Global Styles -------------- */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,7 +15,7 @@ body {
   color: #F8FAFC;
 }
 
-/* -------------- Container -------------- */
+/* ---- Container ---- */
 .forgot-container {
   background: #741e09;
   width: 400px;
@@ -32,7 +32,7 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* -------------- Icon -------------- */
+/* ---- Icon ---- */
 .icon-circle {
   background: rgba(102, 126, 234, 0.15);
   color: #F8FAFC;
@@ -46,7 +46,7 @@ body {
   margin: 0 auto 20px;
 }
 
-/* -------------- Headings & Text -------------- */
+/* ---- Headings & Text ---- */
 h2 {
   color: #F8FAFC;
   font-size: 1.8rem;
@@ -60,7 +60,7 @@ p {
   line-height: 1.5;
 }
 
-/* -------------- Button / Link -------------- */
+/* ---- Button / Link ---- */
 a.button {
   display: inline-block;
   background: #F43F5E;
@@ -76,7 +76,7 @@ a.button:hover {
   background: #F40076;
 }
 
-/* -------------- Back link -------------- */
+/* ---- Back link ---- */
 .back-link {
   display: block;
   margin-top: 25px;

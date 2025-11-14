@@ -17,7 +17,7 @@ import {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-/* ------------------------- helpers ------------------------- */
+/* ----- helpers ---- */
 function friendlyError(err) {
   const code = err?.code || "";
   switch (code) {
@@ -37,7 +37,7 @@ function getEmail(form) {
   return form.querySelector('input[type="email"]')?.value?.trim() || "";
 }
 
-/* ----------------------- forgot page ----------------------- */
+/* ---- forgot page ----- */
 const forgotForm = document.getElementById("forgot-form");
 if (forgotForm) {
   const forgotMsg = document.getElementById("forgot-msg");

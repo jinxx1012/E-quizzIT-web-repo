@@ -53,7 +53,6 @@ function getVals(form) {
 
 //  LOGIN 
 
-
 const loginForm = document.querySelector(".loginform");
 if (loginForm) {
   const logMsg = loginForm.querySelector("#login-message");
