@@ -130,6 +130,74 @@ if (loginForm) {
   }
 }
 
+// Registration Page
+const regForm = document.getElementById("registerform");
+
+if (regForm) {
+  const regMsg = document.getElementById("reg-message");
+
+  // Password toggle
+  const passInput = document.getElementById("regPassword");
+  const passIcon = document.getElementById("reg-pass-icon");
+
+  if (passInput && passIcon) {
+    passIcon.addEventListener("click", () => {
+      const isHidden = passInput.type === "password";
+      passInput.type = isHidden ? "text" : "password";
+      passIcon.setAttribute(
+        "name",
+        isHidden ? "eye-off-outline" : "eye-outline"
+      );
+    });
+  }
+
+  // Submit registration form
+  regForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById("regEmail").value.trim();
+    const username = document.getElementById("regUsername").value.trim();
+    const password = document.getElementById("regPassword").value;
+
+    if (!email || !username || !password)
+      return msg(regMsg, "Please fill out all fields.");
+
+    try {
+      // Create account
+      const userCred = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCred.user;
+
+      // Update profile with username
+      await updateProfile(user, { displayName: username });
+
+      // Save in Firestore
+      await setDoc(doc(db, "users", user.uid), {
+        email,
+        username,
+      });
+
+      msg(regMsg, "Account created! Redirecting…", true);
+
+      setTimeout(() => {
+        window.location.href = "dashboard.html";
+      }, 900);
+
+    } catch (err) {
+      const code = err?.code || "";
+
+      msg(
+        regMsg,
+        code === "auth/email-already-in-use"
+          ? "Email already registered."
+          : code === "auth/weak-password"
+          ? "Password must be at least 6 characters."
+          : "Could not create account. Try again."
+      );
+    }
+  });
+}
+
+
 /* ==== FORGOT PASSWORD PAGE ==== */
 const forgotForm = document.getElementById("forgot-form");
 if (forgotForm) {
