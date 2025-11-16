@@ -45,20 +45,21 @@
           </div>
 
           <!-- Password + Toggle -->
-          <div class="input-box">
-            <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+           <div class="input-box-pass">
+            <ion-icon name="lock-closed-outline" class="icon"></ion-icon>
             <input
               id="regPassword"
               type="password"
               placeholder="Password"
-              autocomplete="new-password"
+              autocomplete="current-password"
               required
             />
-            <span class="icon toggle">
-              <ion-icon name="eye-outline" id="reg-pass-icon"></ion-icon>
-            </span>
+            <ion-icon
+              name="eye-outline"
+              id="reg-pass-icon"
+              class="toggle-pass"
+            ></ion-icon>
           </div>
-
           <button type="submit" class="btn-register">Sign Up</button>
           <p class="form-message" id="reg-message"></p>
 
@@ -73,8 +74,6 @@
     <!-- Firebase -->
     <script type="module" src="firebase.js"></script>
 
-    <!-- Registration Logic -->
-    <script type="module" src="register.js"></script>
 
     <!-- Ionicons -->
     <script

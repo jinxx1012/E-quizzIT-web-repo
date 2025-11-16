@@ -94,6 +94,7 @@ function pick(container, sels) {
 })();
 
 /* ==== LOGIN PAGE ==== */
+const inputlogPassword = document.getElementById("logPassword")
 const loginForm =
   document.getElementById("login-form") ||
   document.querySelector(".loginform");
@@ -105,6 +106,7 @@ if (loginForm) {
 
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+    inputlogPassword.type = "password"
     const { email, password } = getVals(loginForm);
     if (!email || !password) return msg(loginMsg, "Enter email and password");
 
@@ -180,6 +182,7 @@ if (regForm) {
 
       setTimeout(() => {
         window.location.href = "dashboard.html";
+        console.log("abot dito")
       }, 900);
 
     } catch (err) {

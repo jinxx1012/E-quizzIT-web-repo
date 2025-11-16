@@ -95,10 +95,19 @@ async function loadAchievements(uid) {
     const achievementsRef = collection(db, "users", uid, "Achievements");
     const querySnapshot = await getDocs(achievementsRef);
 
-    if (querySnapshot.empty) {
-      achievementsGrid.innerHTML = "<p>No achievements yet.</p>";
-      return;
-    }
+if (querySnapshot.empty) {
+  achievementsGrid.style.display = "flex";   // override grid → flex
+  achievementsGrid.style.flexDirection = "column";
+  achievementsGrid.style.justifyContent = "center";
+  achievementsGrid.style.alignItems = "center";
+
+  achievementsGrid.innerHTML = '<p>No achievements yet.</p>';
+  return;
+}
+
+// restore original grid when not empty
+achievementsGrid.style.display = "grid";
+
 
     achievementsGrid.innerHTML = ""; 
 

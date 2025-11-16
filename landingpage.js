@@ -12,6 +12,12 @@ import {
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 // Helper Functions 
+const inputregPassword = document.getElementById("regPassword")
+const regIcon = document.getElementById("reg-pass-icon")
+const inputlogPassword = document.getElementById("logPassword")
+const passIcon = document.getElementById("log-pass-icon")
+bindPasswordToggle(inputlogPassword,passIcon)
+bindPasswordToggle(inputregPassword,regIcon)
 
 function friendlyError(err) {
   const code = err?.code || "";
