@@ -1,6 +1,4 @@
-
 // index.js — Login + Register + Forgot Password
-
 import {
   auth,
   createUserWithEmailAndPassword,
@@ -65,7 +63,7 @@ if (loginForm) {
   const logPassword = document.getElementById("logPassword");
   const logIcon = document.getElementById("log-pass-icon");
 
-  // Enable password visibility toggle
+  // Enable password toggle
   bindToggle(logPassword, logIcon);
 
   // Login submit
@@ -102,7 +100,7 @@ if (loginForm) {
   }
 }
 
-//  REGISTER 
+// REGISTER 
 
 const registerForm = document.querySelector(".registerform");
 if (registerForm) {

@@ -1,5 +1,4 @@
 // Account Dashboard Script 
-
 import {
   initializeApp
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
@@ -17,7 +16,7 @@ import {
   setDoc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-// --- Firebase Config 
+// Firebase Config 
 const firebaseConfig = {
   apiKey: "AIzaSyCSn-dy59BPsAVrZNjuNfLvApHpQ035kr4",
   authDomain: "e-quizzit-capstone.firebaseapp.com",
@@ -27,12 +26,12 @@ const firebaseConfig = {
   appId: "1:200557257873:web:82a0a4f4bbe5927abe0b30"
 };
 
-// --- Initialize Firebase 
+// Initialize Firebase 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// --- Elements 
+// Elements 
 const userNameEl = document.getElementById("userName");
 const userEmailEl = document.getElementById("userEmail");
 const logoutBtn = document.getElementById("logoutBtn");
@@ -80,7 +79,7 @@ onAuthStateChanged(auth, async (user) => {
       setAvatar(name || email, photo);
     });
 
-    //  Load achievements
+    // Load achievements
     await loadAchievements(user.uid);
   } else {
     window.location.href = "login.html";
@@ -96,7 +95,7 @@ async function loadAchievements(uid) {
     const querySnapshot = await getDocs(achievementsRef);
 
 if (querySnapshot.empty) {
-  achievementsGrid.style.display = "flex";   // override grid → flex
+  achievementsGrid.style.display = "flex"; 
   achievementsGrid.style.flexDirection = "column";
   achievementsGrid.style.justifyContent = "center";
   achievementsGrid.style.alignItems = "center";
@@ -105,7 +104,7 @@ if (querySnapshot.empty) {
   return;
 }
 
-// restore original grid when not empty
+// grid when not empty
 achievementsGrid.style.display = "grid";
 
 
@@ -115,7 +114,7 @@ achievementsGrid.style.display = "grid";
       const data = docSnap.data();
       const { name, description, photoURL, dateUnlocked } = data;
 
-      //  Sanitize the image path
+      // Sanitize the image path
       let sanitizedURL = photoURL || "./assets/medals/default.png";
       sanitizedURL = sanitizedURL.replace(/^@\//, "./").replace(/^\/@\/?/, "./");
 

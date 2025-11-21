@@ -16,7 +16,7 @@ body {
   color: #F8FAFC;
 }
 
-/* ---------- Login Container ---------- */
+/* --- Login Container --- */
 .login-container {
   display: flex;
   justify-content: center;
@@ -52,7 +52,7 @@ h2 {
   margin-bottom: 25px;
 }
 
-/* ---------- Input Box ---------- */
+/* --- Input Box --- */
 .input-box {
   position: relative;
   width: 100%;
@@ -101,7 +101,7 @@ h2 {
   color: #F43F5E;
 }
 
-/* ---------- Forgot Link ---------- */
+/* --- Forgot Link ---- */
 .forgot {
   text-align: right;
   margin-top: 10px;
@@ -119,7 +119,7 @@ h2 {
   text-decoration: underline;
 }
 
-/* ---------- Button ---------- */
+/* --- Button --- */
 .btn {
   width: 100%;
   height: 45px;
@@ -140,7 +140,7 @@ h2 {
   box-shadow: 0 0 15px rgba(244, 63, 94, 0.4);
 }
 
-/* ---------- Register Link ---------- */
+/* --- Register Link --- */
 .register-text {
   font-size: 0.9em;
   color: #F8FAFC;
@@ -158,7 +158,7 @@ h2 {
   text-decoration: underline;
 }
 
-/* ---------- Responsive ---------- */
+/* --- Responsive --- */
 @media (max-width: 480px) {
   .login-card {
     width: 100%;

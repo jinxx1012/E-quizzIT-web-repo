@@ -1,4 +1,4 @@
-// --- Firebase JS ---
+// Firebase JS
 const firebaseConfig = {
   apiKey: "AIzaSyCSn-dy59BPsAVrZNjuNfLvApHpQ035kr4",
   authDomain: "e-quizzit-capstone.firebaseapp.com",
@@ -8,7 +8,7 @@ const firebaseConfig = {
   appId: "1:200557257873:web:82a0a4f4bbe5927abe0b30"
 };
 
-// --- Firebase Imports ---
+// Firebase Imports
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 import {
   getAuth,
@@ -31,7 +31,7 @@ import {
   getDocs
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
-// --- Initialize Firebase ---
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -61,7 +61,7 @@ function msg(el, text, ok = false) {
   el.style.color = ok ? "green" : "crimson";
 }
 
-// email/password from form
+// email/password form
 function getVals(form) {
   const email = form.querySelector('input[type="email"]')?.value?.trim() || "";
   const password = form.querySelector('input[type="password"]')?.value || "";
@@ -77,7 +77,7 @@ function pick(container, sels) {
   return null;
 }
 
-/* ==== PASSWORD TOGGLE ==== */
+/* PASSWORD TOGGLE */
 (function bindPasswordToggle() {
   const input = document.getElementById("logPassword");
   const icon = document.getElementById("log-pass-icon");
@@ -93,7 +93,7 @@ function pick(container, sels) {
   });
 })();
 
-/* ==== LOGIN PAGE ==== */
+/* LOGIN PAGE */
 const inputlogPassword = document.getElementById("logPassword")
 const loginForm =
   document.getElementById("login-form") ||
@@ -201,7 +201,7 @@ if (regForm) {
 }
 
 
-/* ==== FORGOT PASSWORD PAGE ==== */
+/* FORGOT PASSWORD PAGE */
 const forgotForm = document.getElementById("forgot-form");
 if (forgotForm) {
   const forgotMsg = document.getElementById("forgot-msg");
